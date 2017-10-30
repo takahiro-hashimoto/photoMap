@@ -44,7 +44,6 @@ $(function(){
          render(data);
          initialize(data);
          showAddBtn();
-         console.log(data);
          photoData.push(data.photos);
          getPage++;
        },
