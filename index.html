@@ -32,29 +32,40 @@
 <body>
 
 <div id='js-wrapper'>
-  <header class='header'>
+
+  <header class='l-bottom-large header'>
     <div class='l-content'>
-      <h1 class='header-title'>snapMap</h1>
+      <h1 class='header-title'>撮影スポット検索</h1>
     </div>
   </header>
 
   <div class="l-content">
 
-    <input type="text" id="js-keyword" name="word">
-    <button id='js-submit'>検索</button>
-
-    <div id="js-overlay" class="overlay is-hide"></div>
-    <div id='js-modal' class="modal is-hide">
-      <div id='js-info'></div>
-      <div id='js-map' class='l-modal-map modal-map'></div>
+    <div class='l-bottom-large'>
+      <input type="text" id="js-keyword" name="word">
+      <button id='js-submit'>検索</button>
     </div>
 
-    <div>
+    <div class='l-bottom-large'>
       <ul id='js-renderArea' class='photoList'>
       </ul>
+    </div>
+
+    <div class='l-bottom-large'>
       <button id='js-getPhoto' class='is-hide'>続きを取得する</button>
     </div>
+
+    <footer>
+      <p>hoge</p>
+    </footer>
+
   </div>
+</div>
+
+<div id="js-overlay" class="overlay is-hide"></div>
+<div id='js-modal' class="modal is-hide">
+  <div id='js-info'></div>
+  <div id='js-map' class='l-modal-map modal-map'></div>
 </div>
 
 </body>
