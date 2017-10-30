@@ -2,8 +2,8 @@
   display: none;
 }
 
-.show,
-.is-show {
-  visibility: visible;
-  opacity: 1;
+.is-fixed {
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
