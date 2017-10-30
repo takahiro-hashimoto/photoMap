@@ -1,0 +1,27 @@
+.button {
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-size: 14px;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
+.button-edit {
+  background-color: #21ba45;
+  color: #fff;
+  font-weight: bold;
+}
+
+.button-save {
+  background-color: #2185d0;
+  color: #fff;
+  font-weight: bold;
+}
+
+.button-close {
+  background-color: #e0e1e2;
+  color: #999;
+  font-weight: bold;
+}

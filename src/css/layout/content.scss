@@ -1,0 +1,25 @@
+.l-content-list {
+  width: 30%;
+  float: left;
+  overflow-y: scroll;
+  height: 90vh;
+}
+
+.l-content-preview {
+  width: 70%;
+  float: right;
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+.l-content-button-edit {
+  position: absolute;
+  top: 15px;
+  right: 5px;
+}
+
+.l-content-button-delete {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+}
