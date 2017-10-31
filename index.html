@@ -8,7 +8,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="dst/script/index.js"></script>
-<link href='dst/css/style.css' media='all' />
+<link rel='stylesheet' type='text/css' href='dst/css/style.css' media='all' />
 <style media="screen">
 
 .map-image {
@@ -16,11 +16,180 @@
   height: auto;
 }
 
-#js-renderArea {
-  position: fixed;
-  top: 120px;
+
+/*ローディングアニメーション*/
+.loading-animation-wrapper {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  margin: 12px auto;
+  transform: scale(.6);
+  -o-transform: scale(.6);
+  -ms-transform: scale(.6);
+  -webkit-transform: scale(.6);
+  -moz-transform: scale(.6);
+}
+
+.animation-item {
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  animation-name: loading-animation;
+  -o-animation-name: loading-animation;
+  -ms-animation-name: loading-animation;
+  -webkit-animation-name: loading-animation;
+  -moz-animation-name: loading-animation;
+  animation-duration: .882s;
+  -o-animation-duration: .882s;
+  -ms-animation-duration: .882s;
+  -webkit-animation-duration: .882s;
+  -moz-animation-duration: .882s;
+  animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-direction: normal;
+  -o-animation-direction: normal;
+  -ms-animation-direction: normal;
+  -webkit-animation-direction: normal;
+  -moz-animation-direction: normal;
+}
+
+.circle-01 {
+  left: 0;
+  top: 44px;
+  animation-delay: .3295s;
+  -o-animation-delay: .3295s;
+  -ms-animation-delay: .3295s;
+  -webkit-animation-delay: .3295s;
+  -moz-animation-delay: .3295s;
+}
+
+.circle-02 {
+  left: 13px;
+  top: 13px;
+  animation-delay: .446s;
+  -o-animation-delay: .446s;
+  -ms-animation-delay: .446s;
+  -webkit-animation-delay: .446s;
+  -moz-animation-delay: .446s;
+}
+
+.circle-03 {
+  left: 44px;
+  top: 0;
+  animation-delay: .5525s;
+  -o-animation-delay: .5525s;
+  -ms-animation-delay: .5525s;
+  -webkit-animation-delay: .5525s;
+  -moz-animation-delay: .5525s;
+}
+
+.circle-04 {
+  right: 13px;
+  top: 13px;
+  animation-delay: .659s;
+  -o-animation-delay: .659s;
+  -ms-animation-delay: .659s;
+  -webkit-animation-delay: .659s;
+  -moz-animation-delay: .659s;
+}
+
+.circle-05 {
+  right: 0;
+  top: 44px;
+  animation-delay: .7755s;
+  -o-animation-delay: .7755s;
+  -ms-animation-delay: .7755s;
+  -webkit-animation-delay: .7755s;
+  -moz-animation-delay: .7755s;
+}
+
+.circle-06 {
+  right: 13px;
+  bottom: 13px;
+  animation-delay: .882s;
+  -o-animation-delay: .882s;
+  -ms-animation-delay: .882s;
+  -webkit-animation-delay: .882s;
+  -moz-animation-delay: .882s;
+}
+
+.circle-07 {
+  left: 44px;
   bottom: 0;
-  overflow-y: auto;
+  animation-delay: .9985s;
+  -o-animation-delay: .9985s;
+  -ms-animation-delay: .9985s;
+  -webkit-animation-delay: .9985s;
+  -moz-animation-delay: .9985s;
+}
+
+.circle-08 {
+  left: 13px;
+  bottom: 13px;
+  animation-delay: 1.105s;
+  -o-animation-delay: 1.105s;
+  -ms-animation-delay: 1.105s;
+  -webkit-animation-delay: 1.105s;
+  -moz-animation-delay: 1.105s;
+}
+
+@keyframes loading-animation {
+  0% {
+    background-color: rgb(41, 151, 214);
+  }
+
+  100% {
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@-o-keyframes loading-animation {
+  0% {
+    background-color: rgb(41, 151, 214);
+  }
+
+  100% {
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@-ms-keyframes loading-animation {
+  0% {
+    background-color: rgb(41, 151, 214);
+  }
+
+  100% {
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@-webkit-keyframes loading-animation {
+  0% {
+    background-color: rgb(41, 151, 214);
+  }
+
+  100% {
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@-moz-keyframes loading-animation {
+  0% {
+    background-color: rgb(41, 151, 214);
+  }
+
+  100% {
+    background-color: rgb(255, 255, 255);
+  }
 }
 
 </style>
@@ -41,18 +210,26 @@
       <button id='js-submit'>検索</button>
     </div>
 
-    <div class='l-bottom-large'>
-      <ul id='js-renderArea' class='l-trisect photoList'>
+    <div id='js-infinite-scroll' class='l-bottom-large infiniteScroll'>
+      <ul id='js-renderArea' class='l-trisect l-bottom-small photoList'>
       </ul>
+      <div id='js-infinite-scroll-bar' class='infiniteScroll-bar is-hide'>
+        <p class='infiniteScroll-text'>
+          <span class='infiniteScroll-icon'>
+            <div class="loading-animation-wrapper">
+              <div class="animation-item circle-01"></div>
+              <div class="animation-item circle-02"></div>
+              <div class="animation-item circle-03"></div>
+              <div class="animation-item circle-04"></div>
+              <div class="animation-item circle-05"></div>
+              <div class="animation-item circle-06"></div>
+              <div class="animation-item circle-07"></div>
+              <div class="animation-item circle-08"></div>
+            </div>
+          </span>
+          <span></span>more</p>
+      </div>
     </div>
-
-    <div class='l-bottom-large'>
-      <button id='js-getPhoto' class='is-hide'>続きを取得する</button>
-    </div>
-
-    <footer>
-      <p>hoge</p>
-    </footer>
 
   </div>
 </div>

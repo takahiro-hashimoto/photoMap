@@ -56,3 +56,105 @@ To https://github.com/takahiro-hashimoto/photoMap.git
 bash-3.2$ 
 bash-3.2$ 
 bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ git add .
+bash-3.2$ git c[Kcommit -m 'update infinite scroll"[K'
+[master 81dfc29] update infinite scroll
+ Committer: H-1558 <h-1558@H-1558noMacBook-Pro.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 2 files changed, 38 insertions(+), 3 deletions(-)
+bash-3.2$ git push origin a[Kmaster
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects:  25% (1/4)   Compressing objects:  50% (2/4)   Compressing objects:  75% (3/4)   Compressing objects: 100% (4/4)   Compressing objects: 100% (4/4), done.
+Writing objects:  25% (1/4)   Writing objects:  50% (2/4)   Writing objects:  75% (3/4)   Writing objects: 100% (4/4)   Writing objects: 100% (4/4), 1.31 KiB | 1.31 MiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/2)   [Kremote: Resolving deltas:  50% (1/2)   [Kremote: Resolving deltas: 100% (2/2)   [Kremote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
+To https://github.com/takahiro-hashimoto/photoMap.git
+   4158335..81dfc29  master -> master
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ ll
+bash: ll: command not found
+bash-3.2$ ls
+README.md		gulpfile.js		node_modules		package.json		typescript
+dst			index.html		package-lock.json	src
+bash-3.2$ cd src
+bash-3.2$ ll
+bash: ll: command not found
+bash-3.2$ ls
+css	script
+bash-3.2$ cd scc/[K[K[K[Kcss/module/
+_button.scss  _header.scss  _modal.scss   _photo.scss   overlay.scss  
+bash-3.2$ cd css/module/
+_button.scss  _header.scss  _modal.scss   _photo.scss   overlay.scss  
+bash-3.2$ cd css/module/
+bash-3.2$ touch ?[K_infiniteScroll.scss
+bash-3.2$ pwd
+/Users/h-1558/Documents/photoMap/src/css/module
+bash-3.2$ cd[K[Kcd
+bash-3.2$ cd Documents/photoMap/
+bash-3.2$ gi[Kulp script
+[[90m18:57:32[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
+[[90m18:57:32[39m] Starting '[36mscript[39m'...
+[[90m18:57:32[39m] Finished '[36mscript[39m' after [35m73 ms[39m
+gubash-3.2$ gut[Klp style
+[[90m18:57:37[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
+[[90m18:57:37[39m] Starting '[36mstyle[39m'...
+[[90m18:57:37[39m] Finished '[36mstyle[39m' after [35m10 ms[39m
+bash-3.2$ gulp watch
+[[90m18:58:25[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
+[[90m18:58:25[39m] Starting '[36mwatch[39m'...
+[[90m18:58:25[39m] Finished '[36mwatch[39m' after [35m13 ms[39m
+[[90m18:58:41[39m] Starting '[36mstyle[39m'...
+[[90m18:58:41[39m] Finished '[36mstyle[39m' after [35m11 ms[39m
+[[90m18:58:41[39m] Starting '[36mscript[39m'...
+[[90m18:58:41[39m] Finished '[36mscript[39m' after [35m16 ms[39m
+[[90m18:59:48[39m] Starting '[36mstyle[39m'...
+[[90m18:59:48[39m] Finished '[36mstyle[39m' after [35m1.39 ms[39m
+[[90m18:59:48[39m] Starting '[36mscript[39m'...
+[[90m18:59:48[39m] Finished '[36mscript[39m' after [35m1.47 ms[39m
+
+
+^C
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ git s[K[K[K[K[Kgulp style
+[[90m19:02:22[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
+[[90m19:02:22[39m] Starting '[36mstyle[39m'...
+[[90m19:02:22[39m] Finished '[36mstyle[39m' after [35m11 ms[39m
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ gulp style
+[[90m19:02:39[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
+[[90m19:02:39[39m] Starting '[36mstyle[39m'...
+[[90m19:02:39[39m] Finished '[36mstyle[39m' after [35m10 ms[39m
+bash-3.2$ gulp style
+[[90m19:11:15[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
+[[90m19:11:15[39m] Starting '[36mstyle[39m'...
+[[90m19:11:15[39m] Finished '[36mstyle[39m' after [35m10 ms[39m
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ gulp style
+[[90m19:15:53[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
+[[90m19:15:53[39m] Starting '[36mstyle[39m'...
+[[90m19:15:53[39m] Finished '[36mstyle[39m' after [35m8.95 ms[39m
+bash-3.2$ gulp style
+[[90m19:23:37[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
+[[90m19:23:37[39m] Starting '[36mstyle[39m'...
+[[90m19:23:37[39m] Finished '[36mstyle[39m' after [35m11 ms[39m
+bash-3.2$ 

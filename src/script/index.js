@@ -15,10 +15,6 @@ $(function(){
     searchPhoto();
   })
 
-  $('#js-getPhoto').on('click', function(){
-    addPhoto();
-  });
-
   //リクエストURIの生成
   const server = 'https://api.500px.com/v1/photos/search';
   const apiKey = '?consumer_key=G6kID8IZ5fg58bOL32mvffjAFT3gk9TBY13e8OjQ';
@@ -54,10 +50,10 @@ $(function(){
      });
   }
 
-  $('#js-renderArea').on('scroll', function (e) {
-  // jQueryを使う場合
+  $('#js-infinite-scroll').on('scroll', function (e) {
   var target = $(e.target);
   if ((target.scrollTop() + target.outerHeight()) >= e.target.scrollHeight) {
+    $('#js-infinite-scroll-bar').removeClass('is-hide');
     addPhoto();
   }
 });
