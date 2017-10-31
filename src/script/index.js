@@ -6,7 +6,7 @@ $(function(){
   const renderArea = document.getElementById('js-renderArea');
   const keyword = document.getElementById('js-keyword');
   const submit = document.getElementById('js-submit');
-  const photoData = [];
+  let photoData = [];
   let currentScroll;
   let gmarkers = [];
   let i = 0;
@@ -44,7 +44,9 @@ $(function(){
          render(data);
          initialize(data);
          showAddBtn();
-         photoData.push(data.photos);
+         data.photos.forEach((v) => {
+           photoData.push(v);
+         });
          getPage++;
        },
        error: function(xhr, textStatus, errorThrown){
@@ -62,8 +64,9 @@ $(function(){
        success: function(data){
          render(data);
          initialize(data);
-         photoData.push(data.photos);
-         console.log(photoData);
+         data.photos.forEach((v) => {
+           photoData.push(v);
+         });
          getPage++;
        },
        error: function(xhr, textStatus, errorThrown){
