@@ -1,238 +1,0 @@
-Script started on Tue Oct 31 17:14:04 2017
-[?1034hbash-3.2$ 
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ qqqqq[K[K[K[K[K
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ pwd
-/Users/h-1558/Documents/photoMap
-bash-3.2$ 
-bash-3.2$ gulp watch
-[[90m17:14:35[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
-[[90m17:14:35[39m] Starting '[36mwatch[39m'...
-[[90m17:14:35[39m] Finished '[36mwatch[39m' after [35m12 ms[39m
-
-[[90m17:15:08[39m] Starting '[36mstyle[39m'...
-[[90m17:15:08[39m] Finished '[36mstyle[39m' after [35m12 ms[39m
-[[90m17:15:08[39m] Starting '[36mscript[39m'...
-[[90m17:15:08[39m] Finished '[36mscript[39m' after [35m17 ms[39m
-qqq   çç  ç CC  qq  ^C
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ git add .
-bash-3.2$ git comi[Kmit -m 'infinite scrollの実装　[K,[K'
-[master 4158335] infinite scrollの実装
- Committer: H-1558 <h-1558@H-1558noMacBook-Pro.local>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
-
-    git config --global --edit
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 3 files changed, 37 insertions(+)
- create mode 100644 typescript
-bash-3.2$ git push origin master
-Counting objects: 7, done.
-Delta compression using up to 4 threads.
-Compressing objects:  14% (1/7)   Compressing objects:  28% (2/7)   Compressing objects:  42% (3/7)   Compressing objects:  57% (4/7)   Compressing objects:  71% (5/7)   Compressing objects:  85% (6/7)   Compressing objects: 100% (7/7)   Compressing objects: 100% (7/7), done.
-Writing objects:  14% (1/7)   Writing objects:  28% (2/7)   Writing objects:  42% (3/7)   Writing objects:  57% (4/7)   Writing objects:  71% (5/7)   Writing objects:  85% (6/7)   Writing objects: 100% (7/7)   Writing objects: 100% (7/7), 1.04 KiB | 1.04 MiB/s, done.
-Total 7 (delta 3), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/3)   [Kremote: Resolving deltas:  33% (1/3)   [Kremote: Resolving deltas:  66% (2/3)   [Kremote: Resolving deltas: 100% (3/3)   [Kremote: Resolving deltas: 100% (3/3), completed with 3 local objects.[K
-
-
-To https://github.com/takahiro-hashimoto/photoMap.git
-   0d4c5c6..4158335  master -> master
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ git add .
-bash-3.2$ git c[Kcommit -m 'update infinite scroll"[K'
-[master 81dfc29] update infinite scroll
- Committer: H-1558 <h-1558@H-1558noMacBook-Pro.local>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
-
-    git config --global --edit
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 2 files changed, 38 insertions(+), 3 deletions(-)
-bash-3.2$ git push origin a[Kmaster
-Counting objects: 4, done.
-Delta compression using up to 4 threads.
-Compressing objects:  25% (1/4)   Compressing objects:  50% (2/4)   Compressing objects:  75% (3/4)   Compressing objects: 100% (4/4)   Compressing objects: 100% (4/4), done.
-Writing objects:  25% (1/4)   Writing objects:  50% (2/4)   Writing objects:  75% (3/4)   Writing objects: 100% (4/4)   Writing objects: 100% (4/4), 1.31 KiB | 1.31 MiB/s, done.
-Total 4 (delta 2), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/2)   [Kremote: Resolving deltas:  50% (1/2)   [Kremote: Resolving deltas: 100% (2/2)   [Kremote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
-To https://github.com/takahiro-hashimoto/photoMap.git
-   4158335..81dfc29  master -> master
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ ll
-bash: ll: command not found
-bash-3.2$ ls
-README.md		gulpfile.js		node_modules		package.json		typescript
-dst			index.html		package-lock.json	src
-bash-3.2$ cd src
-bash-3.2$ ll
-bash: ll: command not found
-bash-3.2$ ls
-css	script
-bash-3.2$ cd scc/[K[K[K[Kcss/module/
-_button.scss  _header.scss  _modal.scss   _photo.scss   overlay.scss  
-bash-3.2$ cd css/module/
-_button.scss  _header.scss  _modal.scss   _photo.scss   overlay.scss  
-bash-3.2$ cd css/module/
-bash-3.2$ touch ?[K_infiniteScroll.scss
-bash-3.2$ pwd
-/Users/h-1558/Documents/photoMap/src/css/module
-bash-3.2$ cd[K[Kcd
-bash-3.2$ cd Documents/photoMap/
-bash-3.2$ gi[Kulp script
-[[90m18:57:32[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
-[[90m18:57:32[39m] Starting '[36mscript[39m'...
-[[90m18:57:32[39m] Finished '[36mscript[39m' after [35m73 ms[39m
-gubash-3.2$ gut[Klp style
-[[90m18:57:37[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
-[[90m18:57:37[39m] Starting '[36mstyle[39m'...
-[[90m18:57:37[39m] Finished '[36mstyle[39m' after [35m10 ms[39m
-bash-3.2$ gulp watch
-[[90m18:58:25[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
-[[90m18:58:25[39m] Starting '[36mwatch[39m'...
-[[90m18:58:25[39m] Finished '[36mwatch[39m' after [35m13 ms[39m
-[[90m18:58:41[39m] Starting '[36mstyle[39m'...
-[[90m18:58:41[39m] Finished '[36mstyle[39m' after [35m11 ms[39m
-[[90m18:58:41[39m] Starting '[36mscript[39m'...
-[[90m18:58:41[39m] Finished '[36mscript[39m' after [35m16 ms[39m
-[[90m18:59:48[39m] Starting '[36mstyle[39m'...
-[[90m18:59:48[39m] Finished '[36mstyle[39m' after [35m1.39 ms[39m
-[[90m18:59:48[39m] Starting '[36mscript[39m'...
-[[90m18:59:48[39m] Finished '[36mscript[39m' after [35m1.47 ms[39m
-
-
-^C
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ git s[K[K[K[K[Kgulp style
-[[90m19:02:22[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
-[[90m19:02:22[39m] Starting '[36mstyle[39m'...
-[[90m19:02:22[39m] Finished '[36mstyle[39m' after [35m11 ms[39m
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ gulp style
-[[90m19:02:39[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
-[[90m19:02:39[39m] Starting '[36mstyle[39m'...
-[[90m19:02:39[39m] Finished '[36mstyle[39m' after [35m10 ms[39m
-bash-3.2$ gulp style
-[[90m19:11:15[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
-[[90m19:11:15[39m] Starting '[36mstyle[39m'...
-[[90m19:11:15[39m] Finished '[36mstyle[39m' after [35m10 ms[39m
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ gulp style
-[[90m19:15:53[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
-[[90m19:15:53[39m] Starting '[36mstyle[39m'...
-[[90m19:15:53[39m] Finished '[36mstyle[39m' after [35m8.95 ms[39m
-bash-3.2$ gulp style
-[[90m19:23:37[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
-[[90m19:23:37[39m] Starting '[36mstyle[39m'...
-[[90m19:23:37[39m] Finished '[36mstyle[39m' after [35m11 ms[39m
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ git add .
-bash-3.2$ git commi -m 'infinitescroll野修正'
-git: 'commi' is not a git command. See 'git --help'.
-
-The most similar commands are
-	commit
-	column
-	config
-bash-3.2$ git commi -m 'infinitescroll野修正'[1@t
-[master 657c282] infinitescroll野修正
- Committer: H-1558 <h-1558@H-1558noMacBook-Pro.local>
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly. Run the
-following command and follow the instructions in your editor to edit
-your configuration file:
-
-    git config --global --edit
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 6 files changed, 316 insertions(+), 22 deletions(-)
- create mode 100644 src/css/module/_infiniteScroll.scss
-bash-3.2$ git push origin master
-Counting objects: 12, done.
-Delta compression using up to 4 threads.
-Compressing objects:   8% (1/12)   Compressing objects:  16% (2/12)   Compressing objects:  25% (3/12)   Compressing objects:  33% (4/12)   Compressing objects:  41% (5/12)   Compressing objects:  50% (6/12)   Compressing objects:  58% (7/12)   Compressing objects:  66% (8/12)   Compressing objects:  75% (9/12)   Compressing objects:  83% (10/12)   Compressing objects:  91% (11/12)   Compressing objects: 100% (12/12)   Compressing objects: 100% (12/12), done.
-Writing objects:   8% (1/12)   Writing objects:  16% (2/12)   Writing objects:  25% (3/12)   Writing objects:  33% (4/12)   Writing objects:  41% (5/12)   Writing objects:  50% (6/12)   Writing objects:  58% (7/12)   Writing objects:  66% (8/12)   Writing objects:  75% (9/12)   Writing objects:  83% (10/12)   Writing objects:  91% (11/12)   Writing objects: 100% (12/12)   Writing objects: 100% (12/12), 4.02 KiB | 4.02 MiB/s, done.
-Total 12 (delta 6), reused 0 (delta 0)
-remote: Resolving deltas:   0% (0/6)   [Kremote: Resolving deltas:  16% (1/6)   [Kremote: Resolving deltas:  33% (2/6)   [Kremote: Resolving deltas:  50% (3/6)   [Kremote: Resolving deltas:  66% (4/6)   [Kremote: Resolving deltas:  83% (5/6)   [Kremote: Resolving deltas: 100% (6/6)   [Kremote: Resolving deltas: 100% (6/6), completed with 6 local objects.[K
-To https://github.com/takahiro-hashimoto/photoMap.git
-   81dfc29..657c282  master -> master
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ 
-bash-3.2$ gulp watch
-[[90m20:18:32[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
-[[90m20:18:32[39m] Starting '[36mwatch[39m'...
-[[90m20:18:32[39m] Finished '[36mwatch[39m' after [35m11 ms[39m
-[[90m20:18:41[39m] Starting '[36mstyle[39m'...
-[[90m20:18:41[39m] Finished '[36mstyle[39m' after [35m12 ms[39m
-[[90m20:18:41[39m] Starting '[36mscript[39m'...
-[[90m20:18:41[39m] Finished '[36mscript[39m' after [35m31 ms[39m
-[[90m20:19:58[39m] Starting '[36mstyle[39m'...
-[[90m20:19:58[39m] Finished '[36mstyle[39m' after [35m2.44 ms[39m
-[[90m20:19:58[39m] Starting '[36mscript[39m'...
-[[90m20:19:58[39m] Finished '[36mscript[39m' after [35m1.84 ms[39m
-[[90m20:20:23[39m] Starting '[36mstyle[39m'...
-[[90m20:20:23[39m] Finished '[36mstyle[39m' after [35m1.04 ms[39m
-[[90m20:20:23[39m] Starting '[36mscript[39m'...
-[[90m20:20:23[39m] Finished '[36mscript[39m' after [35m1.91 ms[39m
-[[90m20:20:39[39m] Starting '[36mstyle[39m'...
-[[90m20:20:39[39m] Finished '[36mstyle[39m' after [35m1.6 ms[39m
-[[90m20:20:39[39m] Starting '[36mscript[39m'...
-[[90m20:20:39[39m] Finished '[36mscript[39m' after [35m2.17 ms[39m
-[[90m20:20:59[39m] Starting '[36mstyle[39m'...
-[[90m20:20:59[39m] Finished '[36mstyle[39m' after [35m1.13 ms[39m
-[[90m20:20:59[39m] Starting '[36mscript[39m'...
-[[90m20:20:59[39m] Finished '[36mscript[39m' after [35m1.42 ms[39m
-[[90m20:21:39[39m] Starting '[36mstyle[39m'...
-[[90m20:21:39[39m] Finished '[36mstyle[39m' after [35m2.29 ms[39m
-[[90m20:21:39[39m] Starting '[36mscript[39m'...
-[[90m20:21:39[39m] Finished '[36mscript[39m' after [35m1.49 ms[39m
-[[90m20:22:20[39m] Starting '[36mstyle[39m'...
-[[90m20:22:20[39m] Finished '[36mstyle[39m' after [35m823 μs[39m
-[[90m20:22:20[39m] Starting '[36mscript[39m'...
-[[90m20:22:20[39m] Finished '[36mscript[39m' after [35m1.19 ms[39m
-[[90m20:23:02[39m] Starting '[36mstyle[39m'...
-[[90m20:23:02[39m] Finished '[36mstyle[39m' after [35m1.27 ms[39m
-[[90m20:23:02[39m] Starting '[36mscript[39m'...
-[[90m20:23:02[39m] Finished '[36mscript[39m' after [35m4.66 ms[39m
-^[[A^[[A        çç  ^C
-bash-3.2$ 
-bash-3.2$ 

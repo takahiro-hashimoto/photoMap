@@ -19,6 +19,7 @@ $(function(){
   let requestURI;
   let getPage;
   let query;
+  let hoge;
 
   //検索開始（検索ボタンクリック後）
   function searchPhoto(){
@@ -38,6 +39,8 @@ $(function(){
              photoData.push(item);
            }
          });
+         console.log(photoData);
+         console.log(photoData.length);
          initialize();
          render();
          showAddBtn();
@@ -48,11 +51,11 @@ $(function(){
      });
   }
 
-  function render() {
+  function render(){
     renderArea.textContent = '';
-    for (var i = 0, count = photoData.length; i < count; i++) {
-        var url = photoData[i].image_url;
-        var template = $(`<li><img data-num="${[i]}" class="photo" src="${url}" ></li>`);
+    for (let i = 0, count = photoData.length; i < count; i++) {
+        let url = photoData[i].image_url;
+        let template = $(`<li><img data-num="${[i]}" class="js-photo photo" src="${url}" ></li>`);
         $('#js-renderArea').append(template);
     }
     // if(photos.length == 0){
@@ -86,36 +89,38 @@ $(function(){
     }
 
   function initialize(){
-    var myOptions = {
+    console.log(photoData);
+    console.log(photoData.length);
+    console.log(gmarkers);
+    gmarkers.length = 0;
+    hoge = 0;
+   let myOptions = {
       zoom: 5,
       center: new google.maps.LatLng(38.2586, 137.6850),
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       // disableDefaultUI: true
     };
-    var map = new google.maps.Map(document.getElementById("js-map") ,myOptions);
-    for (var i = 0; i < photoData.length; i++) {
-      var img = photoData[i].image_url;
-      var latlng = new google.maps.LatLng(photoData[i].latitude, photoData[i].longitude);
-      var description = photoData[i].name;
+    const map = new google.maps.Map(document.getElementById("js-map") ,myOptions);
+    for (let i = 0; i < photoData.length; i++) {
+      let img = photoData[i].image_url;
+      let latlng = new google.maps.LatLng(photoData[i].latitude, photoData[i].longitude);
+      let description = photoData[i].name;
       createMarker(img, latlng, map, description);
     }
   }
 
   function createMarker(img, latlng, map, description){
-    var infoWindow = new google.maps.InfoWindow();
-    var marker = new google.maps.Marker({position: latlng, map: map});
+    const infoWindow = new google.maps.InfoWindow();
+    const marker = new google.maps.Marker({position: latlng, map: map});
     google.maps.event.addListener(marker, 'click', function() {
       infoWindow.setContent(`<p><img class="map-image" src="${img}"/></p>`);
       infoWindow.open(map, marker);
       map.setZoom(12);
     });
-    gmarkers[i] = marker;
-    i ++;
+    gmarkers[hoge] = marker;
+    hoge ++;
+    console.log(hoge);
   }
-
-  // function map_click(i) {
-  //   google.maps.event.trigger(gmarkers[i], 'click');
-  // }
 
   function showModal(){
     currentScroll = $(window).scrollTop();
@@ -136,21 +141,30 @@ $(function(){
     searchPhoto();
   })
 
-  $('#js-infinite-scroll').on('scroll', function (e) {
-    var target = $(e.target);
-    if ((target.scrollTop() + target.outerHeight()) >= e.target.scrollHeight) {
-      $('#js-infinite-scroll-bar').removeClass('is-hide');
-      searchPhoto();
-    }
+  // $('#js-infinite-scroll').on('scroll', function (e) {
+  //   var target = $(e.target);
+  //   if ((target.scrollTop() + target.outerHeight()) >= e.target.scrollHeight) {
+  //     $('#js-infinite-scroll-bar').removeClass('is-hide');
+  //     searchPhoto();
+  //   }
+  // });
+
+  $('#js-infinite-scroll-bar').on('click', function (e) {
+    searchPhoto();
   });
 
-  $(document).on('click', '.photo', function(){
+  $(document).on('click', '.js-photo', function(){
     var i = parseInt($(this).data('num'), 10);
     renderModal(i);
+    mapClick(i);
     showModal();
   });
 
   $('#js-overlay').on('click', function(){
     hideModal();
   });
+
+  function mapClick(i){
+    google.maps.event.trigger(gmarkers[i], 'click');
+  }
 });
