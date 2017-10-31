@@ -39,12 +39,10 @@ $(function(){
              photoData.push(item);
            }
          });
-         console.log(photoData);
-         console.log(photoData.length);
          initialize();
          render();
          showAddBtn();
-         getPage++;
+         getPage ++;
        },
        error: function(xhr, textStatus, errorThrown){
        }
@@ -53,7 +51,7 @@ $(function(){
 
   function render(){
     renderArea.textContent = '';
-    for (let i = 0, count = photoData.length; i < count; i++) {
+    for (let i = 0, count = photoData.length; i < count; i ++) {
         let url = photoData[i].image_url;
         let template = $(`<li><img data-num="${[i]}" class="js-photo photo" src="${url}" ></li>`);
         $('#js-renderArea').append(template);
@@ -89,12 +87,9 @@ $(function(){
     }
 
   function initialize(){
-    console.log(photoData);
-    console.log(photoData.length);
-    console.log(gmarkers);
     gmarkers.length = 0;
     hoge = 0;
-   let myOptions = {
+    let myOptions = {
       zoom: 5,
       center: new google.maps.LatLng(38.2586, 137.6850),
       mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -119,7 +114,6 @@ $(function(){
     });
     gmarkers[hoge] = marker;
     hoge ++;
-    console.log(hoge);
   }
 
   function showModal(){
@@ -141,18 +135,17 @@ $(function(){
     searchPhoto();
   })
 
-  // $('#js-infinite-scroll').on('scroll', function (e) {
-  //   var target = $(e.target);
-  //   if ((target.scrollTop() + target.outerHeight()) >= e.target.scrollHeight) {
-  //     $('#js-infinite-scroll-bar').removeClass('is-hide');
-  //     searchPhoto();
-  //   }
-  // });
-
-  $('#js-infinite-scroll-bar').on('click', function (e) {
-    searchPhoto();
+  $('#js-infinite-scroll').on('scroll', function (e) {
+    var target = $(e.target);
+    if ((target.scrollTop() + target.outerHeight()) >= e.target.scrollHeight) {
+      $('#js-infinite-scroll-bar').removeClass('is-hide');
+      searchPhoto();
+    }
   });
 
+  // $('#js-infinite-scroll-bar').on('click', function (e) {
+  //   searchPhoto();
+  // });
   $(document).on('click', '.js-photo', function(){
     var i = parseInt($(this).data('num'), 10);
     renderModal(i);
