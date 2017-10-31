@@ -158,3 +158,81 @@ bash-3.2$ gulp style
 [[90m19:23:37[39m] Starting '[36mstyle[39m'...
 [[90m19:23:37[39m] Finished '[36mstyle[39m' after [35m11 ms[39m
 bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ git add .
+bash-3.2$ git commi -m 'infinitescroll野修正'
+git: 'commi' is not a git command. See 'git --help'.
+
+The most similar commands are
+	commit
+	column
+	config
+bash-3.2$ git commi -m 'infinitescroll野修正'[1@t
+[master 657c282] infinitescroll野修正
+ Committer: H-1558 <h-1558@H-1558noMacBook-Pro.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 6 files changed, 316 insertions(+), 22 deletions(-)
+ create mode 100644 src/css/module/_infiniteScroll.scss
+bash-3.2$ git push origin master
+Counting objects: 12, done.
+Delta compression using up to 4 threads.
+Compressing objects:   8% (1/12)   Compressing objects:  16% (2/12)   Compressing objects:  25% (3/12)   Compressing objects:  33% (4/12)   Compressing objects:  41% (5/12)   Compressing objects:  50% (6/12)   Compressing objects:  58% (7/12)   Compressing objects:  66% (8/12)   Compressing objects:  75% (9/12)   Compressing objects:  83% (10/12)   Compressing objects:  91% (11/12)   Compressing objects: 100% (12/12)   Compressing objects: 100% (12/12), done.
+Writing objects:   8% (1/12)   Writing objects:  16% (2/12)   Writing objects:  25% (3/12)   Writing objects:  33% (4/12)   Writing objects:  41% (5/12)   Writing objects:  50% (6/12)   Writing objects:  58% (7/12)   Writing objects:  66% (8/12)   Writing objects:  75% (9/12)   Writing objects:  83% (10/12)   Writing objects:  91% (11/12)   Writing objects: 100% (12/12)   Writing objects: 100% (12/12), 4.02 KiB | 4.02 MiB/s, done.
+Total 12 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/6)   [Kremote: Resolving deltas:  16% (1/6)   [Kremote: Resolving deltas:  33% (2/6)   [Kremote: Resolving deltas:  50% (3/6)   [Kremote: Resolving deltas:  66% (4/6)   [Kremote: Resolving deltas:  83% (5/6)   [Kremote: Resolving deltas: 100% (6/6)   [Kremote: Resolving deltas: 100% (6/6), completed with 6 local objects.[K
+To https://github.com/takahiro-hashimoto/photoMap.git
+   81dfc29..657c282  master -> master
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ gulp watch
+[[90m20:18:32[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
+[[90m20:18:32[39m] Starting '[36mwatch[39m'...
+[[90m20:18:32[39m] Finished '[36mwatch[39m' after [35m11 ms[39m
+[[90m20:18:41[39m] Starting '[36mstyle[39m'...
+[[90m20:18:41[39m] Finished '[36mstyle[39m' after [35m12 ms[39m
+[[90m20:18:41[39m] Starting '[36mscript[39m'...
+[[90m20:18:41[39m] Finished '[36mscript[39m' after [35m31 ms[39m
+[[90m20:19:58[39m] Starting '[36mstyle[39m'...
+[[90m20:19:58[39m] Finished '[36mstyle[39m' after [35m2.44 ms[39m
+[[90m20:19:58[39m] Starting '[36mscript[39m'...
+[[90m20:19:58[39m] Finished '[36mscript[39m' after [35m1.84 ms[39m
+[[90m20:20:23[39m] Starting '[36mstyle[39m'...
+[[90m20:20:23[39m] Finished '[36mstyle[39m' after [35m1.04 ms[39m
+[[90m20:20:23[39m] Starting '[36mscript[39m'...
+[[90m20:20:23[39m] Finished '[36mscript[39m' after [35m1.91 ms[39m
+[[90m20:20:39[39m] Starting '[36mstyle[39m'...
+[[90m20:20:39[39m] Finished '[36mstyle[39m' after [35m1.6 ms[39m
+[[90m20:20:39[39m] Starting '[36mscript[39m'...
+[[90m20:20:39[39m] Finished '[36mscript[39m' after [35m2.17 ms[39m
+[[90m20:20:59[39m] Starting '[36mstyle[39m'...
+[[90m20:20:59[39m] Finished '[36mstyle[39m' after [35m1.13 ms[39m
+[[90m20:20:59[39m] Starting '[36mscript[39m'...
+[[90m20:20:59[39m] Finished '[36mscript[39m' after [35m1.42 ms[39m
+[[90m20:21:39[39m] Starting '[36mstyle[39m'...
+[[90m20:21:39[39m] Finished '[36mstyle[39m' after [35m2.29 ms[39m
+[[90m20:21:39[39m] Starting '[36mscript[39m'...
+[[90m20:21:39[39m] Finished '[36mscript[39m' after [35m1.49 ms[39m
+[[90m20:22:20[39m] Starting '[36mstyle[39m'...
+[[90m20:22:20[39m] Finished '[36mstyle[39m' after [35m823 μs[39m
+[[90m20:22:20[39m] Starting '[36mscript[39m'...
+[[90m20:22:20[39m] Finished '[36mscript[39m' after [35m1.19 ms[39m
+[[90m20:23:02[39m] Starting '[36mstyle[39m'...
+[[90m20:23:02[39m] Finished '[36mstyle[39m' after [35m1.27 ms[39m
+[[90m20:23:02[39m] Starting '[36mscript[39m'...
+[[90m20:23:02[39m] Finished '[36mscript[39m' after [35m4.66 ms[39m
+^[[A^[[A        çç  ^C
+bash-3.2$ 
+bash-3.2$ 

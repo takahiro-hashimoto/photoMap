@@ -37,8 +37,10 @@ $(function(){
        dataType: 'json',
        url: requestURI,
        success: function(data){
-         data.photos.forEach((v) => {
-           photoData.push(v);
+         data.photos.forEach((item) => {
+           if(!item.latitude == ''){
+             photoData.push(item);
+           }
          });
          initialize(data);
          showAddBtn();
@@ -58,7 +60,6 @@ $(function(){
   }
 });
 
-  //続きの画像を取得
   function addPhoto(){
     requestURI = searchURI + query + '&page=' + getPage;
     $.ajax({
@@ -66,8 +67,10 @@ $(function(){
        dataType: 'json',
        url: requestURI,
        success: function(data){
-         data.photos.forEach((v) => {
-           photoData.push(v);
+         data.photos.forEach((item) => {
+           if(!item.latitude == ''){
+             photoData.push(item);
+           }
          });
          render();
          initialize(data);
@@ -82,7 +85,6 @@ $(function(){
     renderArea.textContent = '';
     for (var i = 0, count = photoData.length; i < count; i++) {
         var url = photoData[i].image_url;
-        console.log(url)
         var template = $(`<li><a href="javascript:map_click(${[i]})"><img data-num="${[i]}" class="photo" src="${url}" ></a></li>`);
         $('#js-renderArea').append(template);
     }
