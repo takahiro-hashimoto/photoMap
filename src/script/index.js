@@ -41,12 +41,12 @@ $(function(){
        dataType: 'json',
        url: requestURI,
        success: function(data){
-         render(data);
-         initialize(data);
-         showAddBtn();
          data.photos.forEach((v) => {
            photoData.push(v);
          });
+         initialize(data);
+         showAddBtn();
+         render();
          getPage++;
        },
        error: function(xhr, textStatus, errorThrown){
@@ -62,11 +62,11 @@ $(function(){
        dataType: 'json',
        url: requestURI,
        success: function(data){
-         render(data);
-         initialize(data);
          data.photos.forEach((v) => {
            photoData.push(v);
          });
+         render();
+         initialize(data);
          getPage++;
        },
        error: function(xhr, textStatus, errorThrown){
@@ -74,9 +74,11 @@ $(function(){
      });
   }
 
-  function render(data) {
-    for (var i = 0, count = data.photos.length; i < count; i++) {
-        var url = data.photos[i].image_url;
+  function render() {
+    renderArea.textContent = '';
+    for (var i = 0, count = photoData.length; i < count; i++) {
+        var url = photoData[i].image_url;
+        console.log(url)
         var template = $(`<li><a href="javascript:map_click(${[i]})"><img data-num="${[i]}" class="photo" src="${url}" ></a></li>`);
         $('#js-renderArea').append(template);
     }
