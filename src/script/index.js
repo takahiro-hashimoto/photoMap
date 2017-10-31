@@ -143,9 +143,6 @@ $(function(){
     }
   });
 
-  // $('#js-infinite-scroll-bar').on('click', function (e) {
-  //   searchPhoto();
-  // });
   $(document).on('click', '.js-photo', function(){
     var i = parseInt($(this).data('num'), 10);
     renderModal(i);
