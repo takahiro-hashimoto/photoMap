@@ -11,10 +11,6 @@ $(function(){
   let gmarkers = [];
   let i = 0;
 
-  $('#js-submit').on('click', function(){
-    searchPhoto();
-  })
-
   //リクエストURIの生成
   const server = 'https://api.500px.com/v1/photos/search';
   const apiKey = '?consumer_key=G6kID8IZ5fg58bOL32mvffjAFT3gk9TBY13e8OjQ';
@@ -26,11 +22,11 @@ $(function(){
 
   //検索開始（検索ボタンクリック後）
   function searchPhoto(){
-    getPage = 1;
-    photoData.length = 0;
-    keyword.textContent = '';
-    renderArea.textContent = '';
-    query = encodeURIComponent(keyword.value.trim());
+    if(getPage == 1){
+      photoData.length = 0;
+      keyword.textContent = '';
+      query = encodeURIComponent(keyword.value.trim());
+    }
     requestURI = searchURI + query + '&page=' + getPage;
     $.ajax({
        type: 'GET',
@@ -42,38 +38,9 @@ $(function(){
              photoData.push(item);
            }
          });
-         initialize(data);
+         initialize();
+         render();
          showAddBtn();
-         render();
-         getPage++;
-       },
-       error: function(xhr, textStatus, errorThrown){
-       }
-     });
-  }
-
-  $('#js-infinite-scroll').on('scroll', function (e) {
-  var target = $(e.target);
-  if ((target.scrollTop() + target.outerHeight()) >= e.target.scrollHeight) {
-    $('#js-infinite-scroll-bar').removeClass('is-hide');
-    addPhoto();
-  }
-});
-
-  function addPhoto(){
-    requestURI = searchURI + query + '&page=' + getPage;
-    $.ajax({
-       type: 'GET',
-       dataType: 'json',
-       url: requestURI,
-       success: function(data){
-         data.photos.forEach((item) => {
-           if(!item.latitude == ''){
-             photoData.push(item);
-           }
-         });
-         render();
-         initialize(data);
          getPage++;
        },
        error: function(xhr, textStatus, errorThrown){
@@ -85,7 +52,7 @@ $(function(){
     renderArea.textContent = '';
     for (var i = 0, count = photoData.length; i < count; i++) {
         var url = photoData[i].image_url;
-        var template = $(`<li><a href="javascript:map_click(${[i]})"><img data-num="${[i]}" class="photo" src="${url}" ></a></li>`);
+        var template = $(`<li><img data-num="${[i]}" class="photo" src="${url}" ></li>`);
         $('#js-renderArea').append(template);
     }
     // if(photos.length == 0){
@@ -98,13 +65,13 @@ $(function(){
   }
 
   function renderModal(i){
-    let img = photoData[0].photos[i].image_url;
-    let name = photoData[0].photos[i].name;
-    let description = photoData[0].photos[i].description;
-    let camera = photoData[0].photos[i].camera;
-    let location = photoData[0].photos[i].location;
-    let iso = photoData[0].photos[i].iso;
-    let shutter_speed = photoData[0].photos[i].shutter_speed;
+    let img = photoData[i].image_url;
+    let name = photoData[i].name;
+    let description = photoData[i].description;
+    let camera = photoData[i].camera;
+    let location = photoData[i].location;
+    let iso = photoData[i].iso;
+    let shutter_speed = photoData[i].shutter_speed;
     const template = $(`<div class='l-bottom-midium'><img class='modal-photo' src="${img}"></div>
     <table class='l-modal-table modal-table'>
     <tr><th>tite</th><td>${name}</td></tr>
@@ -114,11 +81,11 @@ $(function(){
     <tr><th>IOS</th><td>${iso}</td></tr>
     <tr><th>shutterSpeed</th><td>${shutter_speed}</td></tr>
     </table>`);
-    　$('#js-info').html('');
+      $('#js-info').html('');
       $('#js-info').append(template);
     }
 
-  function initialize(data) {
+  function initialize(){
     var myOptions = {
       zoom: 5,
       center: new google.maps.LatLng(38.2586, 137.6850),
@@ -126,17 +93,17 @@ $(function(){
       // disableDefaultUI: true
     };
     var map = new google.maps.Map(document.getElementById("js-map") ,myOptions);
-    for (var i = 0; i < data.photos.length; i++) {
-      var img = data.photos[i].image_url;
-      var latlng = new google.maps.LatLng(data.photos[i].latitude, data.photos[i].longitude);
-      var description = data.photos[i].name;
+    for (var i = 0; i < photoData.length; i++) {
+      var img = photoData[i].image_url;
+      var latlng = new google.maps.LatLng(photoData[i].latitude, photoData[i].longitude);
+      var description = photoData[i].name;
       createMarker(img, latlng, map, description);
     }
   }
 
   function createMarker(img, latlng, map, description){
     var infoWindow = new google.maps.InfoWindow();
-    var marker = new google.maps.Marker({position: latlng,map: map});
+    var marker = new google.maps.Marker({position: latlng, map: map});
     google.maps.event.addListener(marker, 'click', function() {
       infoWindow.setContent(`<p><img class="map-image" src="${img}"/></p>`);
       infoWindow.open(map, marker);
@@ -146,19 +113,9 @@ $(function(){
     i ++;
   }
 
-  function map_click(i) {
-    google.maps.event.trigger(gmarkers[i], 'click');
-    showModal();
-  }
-
-  $(document).on('click', '.photo', function(){
-    var i = parseInt($(this).data('num'), 10);
-    renderModal(i);
-  });
-
-  $('#js-overlay').on('click', function(){
-    hideModal();
-  });
+  // function map_click(i) {
+  //   google.maps.event.trigger(gmarkers[i], 'click');
+  // }
 
   function showModal(){
     currentScroll = $(window).scrollTop();
@@ -173,4 +130,27 @@ $(function(){
     $('#js-overlay').addClass('is-hide');
     $('#js-modal').addClass('is-hide');
   }
+
+  $('#js-submit').on('click', function(){
+    getPage = 1;
+    searchPhoto();
+  })
+
+  $('#js-infinite-scroll').on('scroll', function (e) {
+    var target = $(e.target);
+    if ((target.scrollTop() + target.outerHeight()) >= e.target.scrollHeight) {
+      $('#js-infinite-scroll-bar').removeClass('is-hide');
+      searchPhoto();
+    }
+  });
+
+  $(document).on('click', '.photo', function(){
+    var i = parseInt($(this).data('num'), 10);
+    renderModal(i);
+    showModal();
+  });
+
+  $('#js-overlay').on('click', function(){
+    hideModal();
+  });
 });
