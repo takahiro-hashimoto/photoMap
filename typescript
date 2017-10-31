@@ -1,0 +1,22 @@
+Script started on Tue Oct 31 17:14:04 2017
+[?1034hbash-3.2$ 
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ qqqqq[K[K[K[K[K
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ pwd
+/Users/h-1558/Documents/photoMap
+bash-3.2$ 
+bash-3.2$ gulp watch
+[[90m17:14:35[39m] Using gulpfile [35m~/Documents/photoMap/gulpfile.js[39m
+[[90m17:14:35[39m] Starting '[36mwatch[39m'...
+[[90m17:14:35[39m] Finished '[36mwatch[39m' after [35m12 ms[39m
+
+[[90m17:15:08[39m] Starting '[36mstyle[39m'...
+[[90m17:15:08[39m] Finished '[36mstyle[39m' after [35m12 ms[39m
+[[90m17:15:08[39m] Starting '[36mscript[39m'...
+[[90m17:15:08[39m] Finished '[36mscript[39m' after [35m17 ms[39m

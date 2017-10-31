@@ -54,6 +54,14 @@ $(function(){
      });
   }
 
+  $('#js-renderArea').on('scroll', function (e) {
+  // jQueryを使う場合
+  var target = $(e.target);
+  if ((target.scrollTop() + target.outerHeight()) >= e.target.scrollHeight) {
+    addPhoto();
+  }
+});
+
   //続きの画像を取得
   function addPhoto(){
     requestURI = searchURI + query + '&page=' + getPage;
