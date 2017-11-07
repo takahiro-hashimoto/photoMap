@@ -11,28 +11,31 @@ $(function(){
   let gmarkers = [];
   let i = 0;
 
-  //リクエストURIの生成
-  const server = 'https://api.500px.com/v1/photos/search';
-  const apiKey = '?consumer_key=G6kID8IZ5fg58bOL32mvffjAFT3gk9TBY13e8OjQ';
-  const imageSize = '&image_size=21'
-  let searchURI = server + apiKey + imageSize + '&term=';
-  let requestURI;
+  //500pxのリクエストURI生成
+  const server500px = 'https://api.500px.com/v1/photos/search';
+  const apiKey500px = '?consumer_key=G6kID8IZ5fg58bOL32mvffjAFT3gk9TBY13e8OjQ';
+  const imageSize500px = '&image_size=21';
+  let searchURI500px = server500px + apiKey500px + imageSize500px + '&term=';
+  let requestURI500px;
+
+  //flickrのリクエストURI生成
+  const serverFlickr = "https://api.flickr.com/services/rest";
+  const method ="?method=flickr.photos.search";
+  const apiKeyFlickr = "&api_key=62d22d8ceb53ada13cbfe83f6f64cfeb&format=json&has_geo=true";
+  let searchURIFlickr = serverFlickr + method + apiKeyFlickr + "&text=";
+  let requestURIFlickr;
+
   let getPage;
   let query;
   let hoge;
 
   //検索開始（検索ボタンクリック後）
-  function searchPhoto(){
-    if(getPage == 1){
-      photoData.length = 0;
-      keyword.textContent = '';
-      query = encodeURIComponent(keyword.value.trim());
-    }
-    requestURI = searchURI + query + '&page=' + getPage;
+  function search500px(){
+    requestURI500px = searchURI500px + query + '&page=' + getPage;
     $.ajax({
        type: 'GET',
        dataType: 'json',
-       url: requestURI,
+       url: requestURI500px,
        success: function(data){
          data.photos.forEach((item) => {
            if(!item.latitude == ''){
@@ -45,6 +48,34 @@ $(function(){
          getPage ++;
        },
        error: function(xhr, textStatus, errorThrown){
+         return;
+       }
+     });
+  }
+
+  function searchFlickr(){
+    requestURIFlickr = searchURIFlickr + query + '&page=' + getPage;
+    $.ajax({
+       type: 'GET',
+       dataType: "jsonp",
+       jsonpCallback: "jsonFlickrApi",
+       url: requestURIFlickr,
+       success: function(data){
+       console.log(data);
+        //  data.photos.forEach((item) => {
+        //    if(!item.latitude == ''){
+        //      photoData.push(item);
+        //    }
+        //  });
+        //  initialize();
+        //  render();
+        //  showAddBtn();
+        //  getPage ++;
+       },
+       error: function(xhr, textStatus, errorThrown){
+         console.log(textStatus);
+          console.log(xhr);
+         return;
        }
      });
   }
@@ -73,7 +104,8 @@ $(function(){
     let location = photoData[i].location;
     let iso = photoData[i].iso;
     let shutter_speed = photoData[i].shutter_speed;
-    const template = $(`<div class='l-bottom-midium'><img class='modal-photo' src="${img}"></div>
+    const template = $(`
+    <div class='l-bottom-midium'><img class='modal-photo' src="${img}"></div>
     <table class='l-modal-table modal-table'>
     <tr><th>tite</th><td>${name}</td></tr>
     <tr><th>description</th><td>${description}</td></tr>
@@ -132,14 +164,20 @@ $(function(){
 
   $('#js-submit').on('click', function(){
     getPage = 1;
-    searchPhoto();
+    if(getPage == 1){
+      photoData.length = 0;
+      keyword.textContent = '';
+      query = encodeURIComponent(keyword.value.trim());
+    }
+    searchFlickr();
+    search500px();
   })
 
   $('#js-infinite-scroll').on('scroll', function (e) {
     var target = $(e.target);
     if ((target.scrollTop() + target.outerHeight()) >= e.target.scrollHeight) {
       $('#js-infinite-scroll-bar').removeClass('is-hide');
-      searchPhoto();
+      search500px();
     }
   });
 
