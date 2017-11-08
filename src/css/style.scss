@@ -3,8 +3,7 @@
 
 // layout
 @import "layout/layout.scss";
-@import "layout/header.scss";
-@import "layout/content.scss";
+@import "layout/photoList.scss";
 
 // module
 @import "module/header.scss";
@@ -12,6 +11,8 @@
 @import "module/modal.scss";
 @import "module/overlay.scss";
 @import "module/photo.scss";
+@import "module/layoutIcon.scss";
 @import "module/infiniteScroll.scss";
+
 // state
 @import "state/state.scss";

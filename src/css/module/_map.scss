@@ -1,0 +1,12 @@
+.modal {
+  position: fixed;
+  width: 800px;
+  height: 550px;
+  left: 50%;
+  top: 50%;
+  margin: -290px 0 0 -400px;
+  background-color: #fff;
+  z-index: 102;
+  overflow-y: scroll;
+  padding: 12px;
+}

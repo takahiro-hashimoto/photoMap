@@ -4,14 +4,6 @@
   clear: both;
 }
 
-.align-left {
-  text-align: left;
-}
-
-.align-right {
-  text-align: right;
-}
-
 .l-left {
   float: left;
 }
@@ -22,6 +14,14 @@
 
 .l-align-center {
   text-align: center;
+}
+
+.l-align-left {
+  text-align: left;
+}
+
+.l-align-right {
+  text-align: right;
 }
 
 .l-bottom-small {
@@ -50,6 +50,9 @@
 }
 
 .l-trisect {
+  width: 1024px;
+  margin: 0 auto;
+
   & > * {
     display: inline-block;
     margin: 0 8px 6px 0;
@@ -57,5 +60,25 @@
     &:nth-child(3n) {
       margin: 0;
     }
+  }
+
+  img {
+    width: 336px;
+    height: 250px;
+    object-fit: cover;
+  }
+}
+
+.l-full {
+  width: 720px;
+  margin: 0 auto;
+
+  & > * {
+    display: block;
+    margin: 0 0 12px;
+  }
+
+  img {
+    width: 100%;
   }
 }

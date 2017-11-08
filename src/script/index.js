@@ -1,6 +1,4 @@
 $(function(){
-  // var 500pxKey = G6kID8IZ5fg58bOL32mvffjAFT3gk9TBY13e8OjQ;
-  // var 500pxSecret = J4Utz9M7H78xJD6Lx2D9MjcppKFqR3AR1gqN1h7z;
 
   //HTML要素の登録
   const renderArea = document.getElementById('js-renderArea');
@@ -12,18 +10,11 @@ $(function(){
   let i = 0;
 
   //500pxのリクエストURI生成
-  const server500px = 'https://api.500px.com/v1/photos/search';
-  const apiKey500px = '?consumer_key=G6kID8IZ5fg58bOL32mvffjAFT3gk9TBY13e8OjQ';
-  const imageSize500px = '&image_size=21';
-  let searchURI500px = server500px + apiKey500px + imageSize500px + '&term=';
-  let requestURI500px;
-
-  //flickrのリクエストURI生成
-  const serverFlickr = "https://api.flickr.com/services/rest";
-  const method ="?method=flickr.photos.search";
-  const apiKeyFlickr = "&api_key=62d22d8ceb53ada13cbfe83f6f64cfeb&format=json&has_geo=0";
-  let searchURIFlickr = serverFlickr + method + apiKeyFlickr + "&text=";
-  let requestURIFlickr;
+  const server = 'https://api.500px.com/v1/photos/search';
+  const apiKey = '?consumer_key=G6kID8IZ5fg58bOL32mvffjAFT3gk9TBY13e8OjQ';
+  const imageSize = '&image_size=21';
+  let searchURI = server + apiKey + imageSize + '&term=';
+  let requestURI;
 
   let getPage;
   let query;
@@ -31,11 +22,11 @@ $(function(){
 
   //検索開始（検索ボタンクリック後）
   function search500px(){
-    requestURI500px = searchURI500px + query + '&page=' + getPage;
+    requestURI = searchURI + query + '&page=' + getPage;
     $.ajax({
        type: 'GET',
        dataType: 'json',
-       url: requestURI500px,
+       url: requestURI,
        success: function(data){
          data.photos.forEach((item) => {
            if(!item.latitude == ''){
@@ -46,32 +37,6 @@ $(function(){
          render();
          showAddBtn();
          getPage ++;
-       },
-       error: function(xhr, textStatus, errorThrown){
-         return;
-       }
-     });
-  }
-
-  function searchFlickr(){
-    requestURIFlickr = searchURIFlickr + query + '&page=' + getPage;
-    $.ajax({
-       type: 'GET',
-       dataType: "jsonp",
-       jsonpCallback: "jsonFlickrApi",
-       url: requestURIFlickr,
-       success: function(data){
-       console.log(requestURIFlickr);
-       console.log(data);
-        //  data.photos.forEach((item) => {
-        //    if(!item.latitude == ''){
-        //      photoData.push(item);
-        //    }
-        //  });
-        //  initialize();
-        //  render();
-        //  showAddBtn();
-        //  getPage ++;
        },
        error: function(xhr, textStatus, errorThrown){
          return;
@@ -172,7 +137,6 @@ $(function(){
       keyword.textContent = '';
       query = encodeURIComponent(keyword.value.trim());
     }
-    searchFlickr();
     search500px();
   })
 
@@ -193,6 +157,19 @@ $(function(){
 
   $('#js-overlay').on('click', function(){
     hideModal();
+  });
+
+  $('#js-layoutIcon li').on('click', function(){
+
+    $('#js-layoutIcon li').removeClass('is-active');
+    $(this).addClass('is-active');
+
+    let index = $('#js-layoutIcon li').index(this);
+    if(index === 1){
+      $('#js-renderArea').addClass('l-full').removeClass('l-trisect');
+    } else {
+      $('#js-renderArea').removeClass('l-full').addClass('l-trisect');
+    }
   });
 
   function mapClick(i){

@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>photoMap</title>
+<title>撮影スポット検索</title>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="dst/script/index.js"></script>
+<link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' media='all' />
 <link rel='stylesheet' type='text/css' href='dst/css/style.css' media='all' />
 <style media="screen">
 
@@ -30,7 +31,7 @@
 <body>
 <div id='js-wrapper'>
 
-  <header class='l-bottom-large clearfix header'>
+  <header class='l-bottom-midium clearfix header'>
     <div class='l-content'>
       <h1 class='header-title l-left'>撮影スポット検索</h1>
       <div class='l-right form'>
@@ -40,9 +41,16 @@
     </div>
   </header>
 
+  <div class='l-content'>
+    <ul id='js-layoutIcon' class='layoutIcon'>
+      <li class='is-active'><i class="fa fa-th" aria-hidden="true"></i></li>
+      <li><i class="fa fa-list" aria-hidden="true"></i></li>
+    </ul>
+  </div>
+
   <div class="l-content">
     <div id='js-infinite-scroll' class='l-bottom-large infiniteScroll'>
-      <ul id='js-renderArea' class='l-trisect l-bottom-small photoList'>
+      <ul id='js-renderArea' class='l-trisect l-bottom-small'>
       </ul>
       <div id='js-infinite-scroll-bar' class='infiniteScroll-bar'>
         <p class='infiniteScroll-icon'>

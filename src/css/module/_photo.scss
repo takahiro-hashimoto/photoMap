@@ -1,5 +1,11 @@
-.photo {
-  width: 336px;
-  height: 250px;
-  object-fit: cover;
+.photoList{
+  &photoList-3col{
+    width: 336px;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  &.photoList-full {
+    width: 100%;
+  }
 }

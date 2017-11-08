@@ -1,0 +1,18 @@
+.l-photoList {
+
+  &.l-photoList-full {
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  &.l-photoList-trisect {
+
+    img {
+      width: 336px;
+      height: 250px;
+      object-fit: cover;
+    }
+  }
+}
