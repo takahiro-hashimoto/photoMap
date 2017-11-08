@@ -1,0 +1,22 @@
+.form {
+
+  .form-input {
+    padding: 8px;
+    border-radius: 4px;
+    width: 200px;
+    border: none;
+  }
+
+  .form-button {
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 14px;
+    background-color: #bbb;
+    color: #fff;
+    font-weight: bold;
+
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+}

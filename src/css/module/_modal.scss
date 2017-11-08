@@ -9,25 +9,4 @@
   z-index: 102;
   overflow-y: scroll;
   padding: 12px;
-
-  .modal-photo {
-    width: 100%;
-    height: auto;
-  }
-
-  .modal-table {
-    border: 1px solid #b0b0b0;
-    width: 380px;
-
-    th,
-    td {
-      border: 1px solid #b0b0b0;
-      padding: 10px 8px;
-    }
-
-    .modal-map {
-      width: 380px;
-      height: 300px;
-    }
-  }
 }

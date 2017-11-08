@@ -12,7 +12,7 @@
 <style media="screen">
 
 .map-image {
-  width: 160px;
+  width: 240px;
   height: auto;
 }
 
@@ -21,41 +21,32 @@
   height: 520px;
 }
 
+.map-title {
+  width: 240px;
+  text-align: center;
+}
+
 </style>
 <body>
 <div id='js-wrapper'>
 
-  <header class='l-bottom-large header'>
+  <header class='l-bottom-large clearfix header'>
     <div class='l-content'>
-      <h1 class='header-title'>撮影スポット検索</h1>
+      <h1 class='header-title l-left'>撮影スポット検索</h1>
+      <div class='l-right form'>
+        <input type='text' id='js-keyword' class='form-input' name='word'>
+        <button id='js-submit' class='form-button'>検索</button>
+      </div>
     </div>
   </header>
 
   <div class="l-content">
-
-    <div class='l-bottom-large'>
-      <input type="text" id="js-keyword" name="word">
-      <button id='js-submit'>検索</button>
-    </div>
-
     <div id='js-infinite-scroll' class='l-bottom-large infiniteScroll'>
       <ul id='js-renderArea' class='l-trisect l-bottom-small photoList'>
       </ul>
       <div id='js-infinite-scroll-bar' class='infiniteScroll-bar'>
-        <p class='infiniteScroll-text'>
-          <span class='infiniteScroll-icon'>
-            <!-- <div class="loading-animation-wrapper">
-              <div class="animation-item circle-01"></div>
-              <div class="animation-item circle-02"></div>
-              <div class="animation-item circle-03"></div>
-              <div class="animation-item circle-04"></div>
-              <div class="animation-item circle-05"></div>
-              <div class="animation-item circle-06"></div>
-              <div class="animation-item circle-07"></div>
-              <div class="animation-item circle-08"></div>
-            </div> -->
-          </span>
-          <span>more</span>
+        <p class='infiniteScroll-icon'>
+          <img src='dst/img/icon-load.gif' alt='アイコン'>
         </p>
       </div>
     </div>
@@ -64,8 +55,8 @@
 </div>
 
 <div id="js-overlay" class="overlay is-hide"></div>
+
 <div id='js-modal' class="modal is-hide">
-  <div id='js-info'></div>
   <div id='js-map' class='l-modal-map modal-map'></div>
 </div>
 

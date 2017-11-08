@@ -21,7 +21,7 @@ $(function(){
   //flickrのリクエストURI生成
   const serverFlickr = "https://api.flickr.com/services/rest";
   const method ="?method=flickr.photos.search";
-  const apiKeyFlickr = "&api_key=62d22d8ceb53ada13cbfe83f6f64cfeb&format=json&has_geo=true";
+  const apiKeyFlickr = "&api_key=62d22d8ceb53ada13cbfe83f6f64cfeb&format=json&has_geo=0";
   let searchURIFlickr = serverFlickr + method + apiKeyFlickr + "&text=";
   let requestURIFlickr;
 
@@ -61,6 +61,7 @@ $(function(){
        jsonpCallback: "jsonFlickrApi",
        url: requestURIFlickr,
        success: function(data){
+       console.log(requestURIFlickr);
        console.log(data);
         //  data.photos.forEach((item) => {
         //    if(!item.latitude == ''){
@@ -73,8 +74,6 @@ $(function(){
         //  getPage ++;
        },
        error: function(xhr, textStatus, errorThrown){
-         console.log(textStatus);
-          console.log(xhr);
          return;
        }
      });
@@ -131,16 +130,16 @@ $(function(){
     for (let i = 0; i < photoData.length; i++) {
       let img = photoData[i].image_url;
       let latlng = new google.maps.LatLng(photoData[i].latitude, photoData[i].longitude);
-      let description = photoData[i].name;
-      createMarker(img, latlng, map, description);
+      let name = photoData[i].name;
+      createMarker(img, latlng, map, name);
     }
   }
 
-  function createMarker(img, latlng, map, description){
+  function createMarker(img, latlng, map, name){
     const infoWindow = new google.maps.InfoWindow();
     const marker = new google.maps.Marker({position: latlng, map: map});
     google.maps.event.addListener(marker, 'click', function() {
-      infoWindow.setContent(`<p><img class="map-image" src="${img}"/></p>`);
+      infoWindow.setContent(`<div><p class="map-title l-bottom-small">${name}</p><img class="map-image" src="${img}"/></div>`);
       infoWindow.open(map, marker);
       map.setZoom(12);
     });
@@ -161,6 +160,10 @@ $(function(){
     $('#js-overlay').addClass('is-hide');
     $('#js-modal').addClass('is-hide');
   }
+
+  $(window).on('load', function(){
+    search500px();
+  })
 
   $('#js-submit').on('click', function(){
     getPage = 1;
