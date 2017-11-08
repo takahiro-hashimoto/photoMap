@@ -64,7 +64,6 @@ $(function(){
   let query;
   let hoge;
 
-  //検索開始（検索ボタンクリック後）
   function searchPhoto(){
     requestURI = searchURI + query + '&page=' + getPage;
     $.ajax({
@@ -95,9 +94,6 @@ $(function(){
         let template = $(`<li><img data-num="${[i]}" class="js-photo photo" src="${url}" ></li>`);
         $('#js-renderArea').append(template);
     }
-    // if(photos.length == 0){
-    //   photoArea.textContent = notFoundMessage;
-    // }
   }
 
   function showAddBtn(){
@@ -111,7 +107,6 @@ $(function(){
       zoom: 5,
       center: new google.maps.LatLng(38.2586, 137.6850),
       mapTypeId: google.maps.MapTypeId.ROADMAP,
-      // disableDefaultUI: true
     };
     const map = new google.maps.Map(document.getElementById("js-map") ,myOptions);
     for (let i = 0; i < photoData.length; i++) {
