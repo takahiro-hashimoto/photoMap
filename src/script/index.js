@@ -21,7 +21,7 @@ $(function(){
   let hoge;
 
   //検索開始（検索ボタンクリック後）
-  function search500px(){
+  function searchPhoto(){
     requestURI = searchURI + query + '&page=' + getPage;
     $.ajax({
        type: 'GET',
@@ -59,28 +59,6 @@ $(function(){
   function showAddBtn(){
     $('#js-getPhoto').removeClass('is-hide');
   }
-
-  function renderModal(i){
-    let img = photoData[i].image_url;
-    let name = photoData[i].name;
-    let description = photoData[i].description;
-    let camera = photoData[i].camera;
-    let location = photoData[i].location;
-    let iso = photoData[i].iso;
-    let shutter_speed = photoData[i].shutter_speed;
-    const template = $(`
-    <div class='l-bottom-midium'><img class='modal-photo' src="${img}"></div>
-    <table class='l-modal-table modal-table'>
-    <tr><th>tite</th><td>${name}</td></tr>
-    <tr><th>description</th><td>${description}</td></tr>
-    <tr><th>camera</th><td>${camera}</td></tr>
-    <tr><th>location</th><td${location}></td></tr>
-    <tr><th>IOS</th><td>${iso}</td></tr>
-    <tr><th>shutterSpeed</th><td>${shutter_speed}</td></tr>
-    </table>`);
-      $('#js-info').html('');
-      $('#js-info').append(template);
-    }
 
   function initialize(){
     gmarkers.length = 0;
@@ -127,7 +105,7 @@ $(function(){
   }
 
   $(window).on('load', function(){
-    search500px();
+    searchPhoto();
   })
 
   $('#js-submit').on('click', function(){
@@ -137,20 +115,19 @@ $(function(){
       keyword.textContent = '';
       query = encodeURIComponent(keyword.value.trim());
     }
-    search500px();
+    searchPhoto();
   })
 
   $('#js-infinite-scroll').on('scroll', function (e) {
     var target = $(e.target);
     if ((target.scrollTop() + target.outerHeight()) >= e.target.scrollHeight) {
       $('#js-infinite-scroll-bar').removeClass('is-hide');
-      search500px();
+      searchPhoto();
     }
   });
 
   $(document).on('click', '.js-photo', function(){
     var i = parseInt($(this).data('num'), 10);
-    renderModal(i);
     mapClick(i);
     showModal();
   });
