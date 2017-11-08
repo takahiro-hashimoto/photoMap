@@ -1,5 +1,50 @@
 $(function(){
 
+  $(window).on('load', function(){
+    searchPhoto();
+  })
+
+  $('#js-submit').on('click', function(){
+    getPage = 1;
+    if(getPage == 1){
+      photoData.length = 0;
+      keyword.textContent = '';
+      query = encodeURIComponent(keyword.value.trim());
+    }
+    searchPhoto();
+  })
+
+  $('#js-infinite-scroll').on('scroll', function (e) {
+    var target = $(e.target);
+    if ((target.scrollTop() + target.outerHeight()) >= e.target.scrollHeight) {
+      $('#js-infinite-scroll-bar').removeClass('is-hide');
+      searchPhoto();
+    }
+  });
+
+  $(document).on('click', '.js-photo', function(){
+    var i = parseInt($(this).data('num'), 10);
+    mapClick(i);
+    showModal();
+  });
+
+  $('#js-overlay').on('click', function(){
+    hideModal();
+  });
+
+  $('#js-layoutIcon li').on('click', function(){
+
+    $('#js-layoutIcon li').removeClass('is-active');
+    $(this).addClass('is-active');
+
+    let index = $('#js-layoutIcon li').index(this);
+    if(index === 1){
+      $('#js-renderArea').addClass('l-full').removeClass('l-trisect');
+    } else {
+      $('#js-renderArea').removeClass('l-full').addClass('l-trisect');
+    }
+  });
+
   //HTML要素の登録
   const renderArea = document.getElementById('js-renderArea');
   const keyword = document.getElementById('js-keyword');
@@ -15,7 +60,6 @@ $(function(){
   const imageSize = '&image_size=21';
   let searchURI = server + apiKey + imageSize + '&term=';
   let requestURI;
-
   let getPage;
   let query;
   let hoge;
@@ -104,52 +148,8 @@ $(function(){
     $('#js-modal').addClass('is-hide');
   }
 
-  $(window).on('load', function(){
-    searchPhoto();
-  })
-
-  $('#js-submit').on('click', function(){
-    getPage = 1;
-    if(getPage == 1){
-      photoData.length = 0;
-      keyword.textContent = '';
-      query = encodeURIComponent(keyword.value.trim());
-    }
-    searchPhoto();
-  })
-
-  $('#js-infinite-scroll').on('scroll', function (e) {
-    var target = $(e.target);
-    if ((target.scrollTop() + target.outerHeight()) >= e.target.scrollHeight) {
-      $('#js-infinite-scroll-bar').removeClass('is-hide');
-      searchPhoto();
-    }
-  });
-
-  $(document).on('click', '.js-photo', function(){
-    var i = parseInt($(this).data('num'), 10);
-    mapClick(i);
-    showModal();
-  });
-
-  $('#js-overlay').on('click', function(){
-    hideModal();
-  });
-
-  $('#js-layoutIcon li').on('click', function(){
-
-    $('#js-layoutIcon li').removeClass('is-active');
-    $(this).addClass('is-active');
-
-    let index = $('#js-layoutIcon li').index(this);
-    if(index === 1){
-      $('#js-renderArea').addClass('l-full').removeClass('l-trisect');
-    } else {
-      $('#js-renderArea').removeClass('l-full').addClass('l-trisect');
-    }
-  });
-
   function mapClick(i){
     google.maps.event.trigger(gmarkers[i], 'click');
   }
+
 });
