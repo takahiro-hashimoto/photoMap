@@ -1,0 +1,214 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
+
+*, *:before, *:after {
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
+
+input, button, textarea, select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+html, body {
+  height: 100%; }
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.l-left {
+  float: left; }
+
+.l-right {
+  float: right; }
+
+.l-align-center {
+  text-align: center; }
+
+.l-align-left {
+  text-align: left; }
+
+.l-align-right {
+  text-align: right; }
+
+.l-bottom-small {
+  margin-bottom: 8px !important; }
+
+.l-bottom-midium {
+  margin-bottom: 16px !important; }
+
+.l-bottom-large {
+  margin-bottom: 24px !important; }
+
+.l-bottom-xlarge {
+  margin-bottom: 48px !important; }
+
+.l-bottom-xxlarge {
+  margin-bottom: 64px !important; }
+
+.l-content {
+  width: 1024px;
+  margin: 0 auto; }
+
+.l-trisect {
+  width: 1024px;
+  margin: 0 auto; }
+  .l-trisect > * {
+    display: inline-block;
+    margin: 0 8px 6px 0; }
+    .l-trisect > *:nth-child(3n) {
+      margin: 0; }
+  .l-trisect img {
+    width: 336px;
+    height: 250px;
+    -o-object-fit: cover;
+       object-fit: cover; }
+
+.l-full {
+  width: 720px;
+  margin: 0 auto; }
+  .l-full > * {
+    display: block;
+    margin: 0 0 12px; }
+  .l-full img {
+    width: 100%; }
+
+.l-photoList.l-photoList-full img {
+  width: 100%;
+  height: auto; }
+
+.l-photoList.l-photoList-trisect img {
+  width: 336px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover; }
+
+.l-photo-spec > * {
+  margin-right: 6px; }
+  .l-photo-spec > * > *:last-child {
+    margin-right: 0; }
+
+.header {
+  background-color: #2c3744;
+  padding: 20px 0;
+  display: block; }
+  .header .header-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff; }
+
+.form .form-input {
+  padding: 8px;
+  border-radius: 4px;
+  width: 200px;
+  border: none; }
+
+.form .form-button {
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 14px;
+  background-color: #bbb;
+  color: #fff;
+  font-weight: bold; }
+  .form .form-button:hover {
+    background-color: #ddd; }
+
+.modal {
+  position: fixed;
+  width: 800px;
+  height: 550px;
+  left: 50%;
+  top: 50%;
+  margin: -290px 0 0 -400px;
+  background-color: #fff;
+  z-index: 102;
+  overflow-y: scroll;
+  padding: 12px; }
+  .modal .modal-map {
+    width: 775px;
+    height: 520px; }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: .6;
+  z-index: 1; }
+
+.photo {
+  cursor: pointer;
+  position: relative; }
+
+.layoutIcon li {
+  display: inline-block;
+  padding-right: 4px;
+  color: #ccc;
+  font-size: 23px;
+  cursor: pointer; }
+
+.layoutIcon .is-active {
+  color: #2c3744; }
+
+.infiniteScroll {
+  position: fixed;
+  top: 120px;
+  bottom: 0;
+  overflow-y: auto; }
+  .infiniteScroll .infiniteScroll-bar {
+    padding: 8px;
+    text-align: center;
+    width: 1024px; }
+
+.is-hide {
+  visibility: hidden; }
+
+.is-fixed {
+  position: fixed;
+  width: 100%;
+  height: 100%; }
