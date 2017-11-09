@@ -52,7 +52,7 @@ $(function () {
   var keyword = $('#js-keyword');
   var submit = $('#js-submit');
   var photoData = [];
-  var currentScroll = void 0;
+  var currentScroll = '';
   var gmarkers = [];
   var getPage = 1;
   var query = '';
@@ -62,7 +62,7 @@ $(function () {
   var apiKey = '?consumer_key=G6kID8IZ5fg58bOL32mvffjAFT3gk9TBY13e8OjQ';
   var imageSize = '&image_size=21';
   var searchURI = server + apiKey + imageSize + '&term=';
-  var requestURI = void 0;
+  var requestURI = '';
 
   var searchPhoto = function searchPhoto() {
     requestURI = searchURI + query + '&page=' + getPage;

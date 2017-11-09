@@ -50,7 +50,7 @@ $(function(){
   const keyword = $('#js-keyword');
   const submit = $('#js-submit');
   let photoData = [];
-  let currentScroll;
+  let currentScroll = '';
   let gmarkers = [];
   let getPage = 1;
   let query = '';
@@ -60,7 +60,7 @@ $(function(){
   const apiKey = '?consumer_key=G6kID8IZ5fg58bOL32mvffjAFT3gk9TBY13e8OjQ';
   const imageSize = '&image_size=21';
   let searchURI = server + apiKey + imageSize + '&term=';
-  let requestURI;
+  let requestURI = '';
 
   const searchPhoto = () =>{
     requestURI = searchURI + query + '&page=' + getPage;
