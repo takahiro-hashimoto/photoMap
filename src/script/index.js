@@ -52,9 +52,9 @@ $(function(){
   let photoData = [];
   let currentScroll;
   let gmarkers = [];
-  let getPage;
-  let query;
-  let makerLength;
+  let getPage = 1;
+  let query = '';
+  let makerLength = [];
 
   const server = 'https://api.500px.com/v1/photos/search';
   const apiKey = '?consumer_key=G6kID8IZ5fg58bOL32mvffjAFT3gk9TBY13e8OjQ';

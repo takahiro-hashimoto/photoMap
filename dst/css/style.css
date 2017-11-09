@@ -171,6 +171,14 @@ html, body {
     width: 775px;
     height: 520px; }
 
+.map .map-image {
+  width: 240px;
+  height: auto; }
+
+.map .map-title {
+  width: 240px;
+  text-align: center; }
+
 .overlay {
   position: fixed;
   top: 0;
