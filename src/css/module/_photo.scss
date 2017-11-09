@@ -1,11 +1,4 @@
-.photoList{
-  &photoList-3col{
-    width: 336px;
-    height: 250px;
-    object-fit: cover;
-  }
-
-  &.photoList-full {
-    width: 100%;
-  }
+.photo{
+  cursor: pointer;
+  position: relative;
 }

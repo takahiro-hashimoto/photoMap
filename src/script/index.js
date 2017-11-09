@@ -5,13 +5,14 @@ $(function(){
   })
 
   $('#js-submit').on('click', function(){
+    //取得するページをデフォルト値にリセット
     getPage = 1;
-    if(getPage == 1){
-      photoData.length = 0;
-      keyword.textContent = '';
-      query = encodeURIComponent(keyword.value.trim());
-    }
+    //画像データ配列をリセット
+    photoData.length = 0;
+    query = encodeURIComponent(keyword.val().trim());
+    keyword.val('');
     searchPhoto();
+    $('#js-infinite-scroll').scrollTop(0);
   })
 
   $('#js-infinite-scroll').on('scroll', function (e) {
@@ -23,8 +24,8 @@ $(function(){
   });
 
   $(document).on('click', '.js-photo', function(){
-    var i = parseInt($(this).data('num'), 10);
-    mapClick(i);
+    var num = parseInt($(this).data('num'), 10);
+    mapClick(num);
     showModal();
   });
 
@@ -39,38 +40,37 @@ $(function(){
 
     let index = $('#js-layoutIcon li').index(this);
     if(index === 1){
-      $('#js-renderArea').addClass('l-full').removeClass('l-trisect');
+      renderArea.addClass('l-full').removeClass('l-trisect');
     } else {
-      $('#js-renderArea').removeClass('l-full').addClass('l-trisect');
+      renderArea.removeClass('l-full').addClass('l-trisect');
     }
   });
 
-  //HTML要素の登録
-  const renderArea = document.getElementById('js-renderArea');
-  const keyword = document.getElementById('js-keyword');
-  const submit = document.getElementById('js-submit');
+  const renderArea = $('#js-renderArea');
+  const keyword = $('#js-keyword');
+  const submit = $('#js-submit');
   let photoData = [];
   let currentScroll;
   let gmarkers = [];
-  let i = 0;
+  let getPage;
+  let query;
+  let makerLength;
 
-  //500pxのリクエストURI生成
   const server = 'https://api.500px.com/v1/photos/search';
   const apiKey = '?consumer_key=G6kID8IZ5fg58bOL32mvffjAFT3gk9TBY13e8OjQ';
   const imageSize = '&image_size=21';
   let searchURI = server + apiKey + imageSize + '&term=';
   let requestURI;
-  let getPage;
-  let query;
-  let hoge;
 
-  function searchPhoto(){
+  const searchPhoto = () =>{
     requestURI = searchURI + query + '&page=' + getPage;
     $.ajax({
        type: 'GET',
        dataType: 'json',
        url: requestURI,
        success: function(data){
+         console.log(data);
+         //緯度経度の値が入った出たdataのみをphotoDataに格納
          data.photos.forEach((item) => {
            if(!item.latitude == ''){
              photoData.push(item);
@@ -79,6 +79,7 @@ $(function(){
          initialize();
          render();
          showAddBtn();
+         //次に取得するページを更新
          getPage ++;
        },
        error: function(xhr, textStatus, errorThrown){
@@ -87,22 +88,26 @@ $(function(){
      });
   }
 
-  function render(){
-    renderArea.textContent = '';
+  const render = () =>{
+    renderArea.empty();
     for (let i = 0, count = photoData.length; i < count; i ++) {
         let url = photoData[i].image_url;
-        let template = $(`<li><img data-num="${[i]}" class="js-photo photo" src="${url}" ></li>`);
-        $('#js-renderArea').append(template);
+        let template = $(`<li data-num="${[i]}" class="js-photo photo">
+                            <img src="${url}" >
+                          </li>`);
+        renderArea.append(template);
     }
   }
 
-  function showAddBtn(){
+  const showAddBtn = () =>{
     $('#js-getPhoto').removeClass('is-hide');
   }
 
-  function initialize(){
+  const initialize = () =>{
+    // gmarkersの配列に入ったデータをリセット
     gmarkers.length = 0;
-    hoge = 0;
+
+    makerLength = 0;
     let myOptions = {
       zoom: 5,
       center: new google.maps.LatLng(38.2586, 137.6850),
@@ -117,34 +122,36 @@ $(function(){
     }
   }
 
-  function createMarker(img, latlng, map, name){
+  const createMarker = (img, latlng, map, name) =>{
     const infoWindow = new google.maps.InfoWindow();
     const marker = new google.maps.Marker({position: latlng, map: map});
     google.maps.event.addListener(marker, 'click', function() {
-      infoWindow.setContent(`<div><p class="map-title l-bottom-small">${name}</p><img class="map-image" src="${img}"/></div>`);
+      infoWindow.setContent(`<div class='map'><p class="map-title l-bottom-small">${name}</p>
+                               <img class="map-image" src="${img}"/>
+                             </div>`);
       infoWindow.open(map, marker);
       map.setZoom(12);
     });
-    gmarkers[hoge] = marker;
-    hoge ++;
+    gmarkers[makerLength] = marker;
+    makerLength ++;
   }
 
-  function showModal(){
+  const showModal = () =>{
     currentScroll = $(window).scrollTop();
     $('body').addClass('is-fixed').css({'top': -currentScroll});
     $('#js-overlay').removeClass('is-hide');
     $('#js-modal').removeClass('is-hide');
   }
 
-  function hideModal(){
+  const hideModal = () =>{
     $('body').removeClass('is-fixed').css({'top': 0});
     window.scrollTo(0 , currentScroll);
     $('#js-overlay').addClass('is-hide');
     $('#js-modal').addClass('is-hide');
   }
 
-  function mapClick(i){
-    google.maps.event.trigger(gmarkers[i], 'click');
+  const mapClick = (num) =>{
+    google.maps.event.trigger(gmarkers[num], 'click');
   }
 
 });
